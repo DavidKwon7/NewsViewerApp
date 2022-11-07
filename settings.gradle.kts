@@ -14,3 +14,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "NewsViewerApp"
 include(":app")
+include(":data")
