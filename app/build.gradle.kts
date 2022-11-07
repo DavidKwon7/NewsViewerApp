@@ -14,6 +14,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -54,13 +55,8 @@ android {
 
 dependencies {
 
-/*    implementation 'androidx.core:core-ktx:1.7.0'
-    implementation 'androidx.appcompat:appcompat:1.5.1'
-    implementation 'com.google.android.material:material:1.7.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-    testImplementation 'junit:junit:4.13.2'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'*/
+    implementation(project(":domain"))
+    implementation(project(":data"))
 
     implementation(Dependency.KTX.CORE)
     implementation(Dependency.AndroidX.APP_COMPAT)
@@ -72,5 +68,27 @@ dependencies {
 
     implementation(Dependency.Hilt.HILT)
     kapt(Dependency.Hilt.HILT_KAPT)
+
+    implementation(Dependency.Log.TIMBER)
+
+    testImplementation(Dependency.Test.TRUTH)
+    testImplementation(Dependency.Test.MOCKITO)
+    testImplementation(Dependency.Test.CORE_TEST)
+
+    implementation(Dependency.Remote.RETROFIT)
+    implementation(Dependency.Remote.CONVERTER)
+    implementation(Dependency.Remote.HTTP)
+
+    implementation(Dependency.Coroutine.COROUTINE_CORE)
+    implementation(Dependency.Coroutine.ANDROID)
+    testImplementation(Dependency.Coroutine.TEST)
+
+    implementation(Dependency.Room.RUNTIME)
+    kapt(Dependency.Room.COMPILER)
+    implementation(Dependency.Room.ROOM_KTX)
+
+    implementation(Dependency.LifeCycle.VM)
+    implementation(Dependency.LifeCycle.EXTENSIONS)
+    implementation(Dependency.LifeCycle.LIVEDATA)
 
 }

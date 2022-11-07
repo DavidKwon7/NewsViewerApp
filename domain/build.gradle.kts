@@ -42,4 +42,29 @@ dependencies {
     testImplementation(Dependency.Test.JUNIT)
     androidTestImplementation(Dependency.AndroidTest.TEST_RUNNER)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
+
+    implementation(Dependency.Hilt.HILT)
+    kapt(Dependency.Hilt.HILT_KAPT)
+
+    implementation(Dependency.Log.TIMBER)
+
+    testImplementation(Dependency.Test.TRUTH)
+    testImplementation(Dependency.Test.MOCKITO)
+    testImplementation(Dependency.Test.CORE_TEST)
+
+    implementation(Dependency.Remote.RETROFIT)
+    implementation(Dependency.Remote.CONVERTER)
+    implementation(Dependency.Remote.HTTP)
+
+    implementation(Dependency.Coroutine.COROUTINE_CORE)
+    implementation(Dependency.Coroutine.ANDROID)
+    testImplementation(Dependency.Coroutine.TEST)
+
+    implementation(Dependency.Room.RUNTIME)
+    kapt(Dependency.Room.COMPILER)
+    implementation(Dependency.Room.ROOM_KTX)
+
+    implementation(Dependency.LifeCycle.VM)
+    implementation(Dependency.LifeCycle.EXTENSIONS)
+    implementation(Dependency.LifeCycle.LIVEDATA)
 }
