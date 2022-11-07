@@ -23,4 +23,11 @@ object Dependency {
         const val TEST_RUNNER = "androidx.test.ext:junit:1.1.3"
         const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:3.4.0"
     }
+
+    object Hilt {
+        const val HILT_PLUGIN = "com.google.dagger:hilt-android-gradle-plugin:2.43.2"
+
+        const val HILT = "com.google.dagger:hilt-android:2.43.2"
+        const val HILT_KAPT = "com.google.dagger:hilt-android-compiler:2.43.2"
+    }
 }

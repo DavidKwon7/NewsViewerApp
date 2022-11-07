@@ -1,3 +1,15 @@
+
+buildscript {
+    repositories {
+        google()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath(Dependency.Hilt.HILT_PLUGIN)
+    }
+}
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
@@ -57,5 +69,8 @@ dependencies {
     testImplementation(Dependency.Test.JUNIT)
     androidTestImplementation(Dependency.AndroidTest.TEST_RUNNER)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
+
+    implementation(Dependency.Hilt.HILT)
+    kapt(Dependency.Hilt.HILT_KAPT)
 
 }
