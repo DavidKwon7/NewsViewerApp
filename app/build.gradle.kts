@@ -62,6 +62,8 @@ dependencies {
     implementation(Dependency.AndroidX.APP_COMPAT)
     implementation(Dependency.AndroidX.MATERIAL)
     implementation(Dependency.AndroidX.CONSTRAINT_LAYOUT)
+    implementation("androidx.navigation:navigation-fragment-ktx:2.5.3")
+    implementation("androidx.navigation:navigation-ui-ktx:2.5.3")
     testImplementation(Dependency.Test.JUNIT)
     androidTestImplementation(Dependency.AndroidTest.TEST_RUNNER)
     androidTestImplementation(Dependency.AndroidTest.ESPRESSO_CORE)
