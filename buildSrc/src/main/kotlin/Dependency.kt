@@ -67,5 +67,7 @@ object Dependency {
         const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:4.13.2"
     }
 
-
+    object Paging {
+        const val PAGING = "androidx.paging:paging-runtime:3.0.1"
+    }
 }

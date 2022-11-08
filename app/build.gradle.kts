@@ -95,4 +95,6 @@ dependencies {
     implementation(Dependency.LifeCycle.EXTENSIONS)
     implementation(Dependency.LifeCycle.LIVEDATA)
 
+    implementation(Dependency.Paging.PAGING)
+
 }
