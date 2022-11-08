@@ -21,9 +21,9 @@
             android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:layout_margin="8dp"
+            android:src="@drawable/ic_launcher_background"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:src="@drawable/ic_launcher_background"/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tv_publishAt"
@@ -32,33 +32,34 @@
             android:text="@{searchNews.publishedAt}"
             app:layout_constraintTop_toBottomOf="@id/iv_article"
             app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
             tools:text="2022-11-08"/>
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{searchNews.title}"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
             android:ellipsize="end"
-            android:maxLines="3"
+            android:maxLines="2"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_article"
             tools:text="title"/>
 
         <TextView
             android:id="@+id/tv_description"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:text="@{searchNews.description}"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="4dp"
             android:ellipsize="end"
-            android:maxLines="6"
+            android:maxLines="4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/iv_article"
             app:layout_constraintTop_toBottomOf="@id/tv_title"
