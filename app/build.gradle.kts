@@ -57,6 +57,7 @@ dependencies {
 
     implementation(project(":domain"))
     implementation(project(":data"))
+    implementation(project(":utility"))
 
     implementation(Dependency.KTX.CORE)
     implementation(Dependency.AndroidX.APP_COMPAT)
