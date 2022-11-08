@@ -21,22 +21,25 @@ class HomeViewModel @Inject constructor(
         MutableStateFlow(PagingData.empty())
     val searchStateFlow: StateFlow<PagingData<SearchState>> get() = _searchStateFlow.asStateFlow()
 
+    private var _stateFlow = MutableStateFlow<SearchState>(SearchState.Empty)
+    val stateFlow: StateFlow<SearchState> get() = _stateFlow
+
     fun searchNews(q: String) =
         useCase.invoke(q).cachedIn(viewModelScope)
 
-    /*fun searchNews(query: String) =
+    fun searchArticle(query: String) =
         viewModelScope.launch {
-            _searchStateFlow.value = SearchState.Loading
+            _stateFlow.value = SearchState.Loading
             useCase.invoke(query)
                 .cachedIn(viewModelScope)
                 .catch { e ->
-                    _searchStateFlow.value = SearchState.Failed(e)
+                    _stateFlow.value = SearchState.Failed(e)
                 }.collect {searchData ->
                     // 이렇게 하면 되나..?
-                    _searchStateFlow.value = SearchState.Success(searchData)
+                    _stateFlow.value = SearchState.Success(flowOf(searchData))
 
                 }
-        }*/
+        }
 }
 
 sealed class SearchState() {
