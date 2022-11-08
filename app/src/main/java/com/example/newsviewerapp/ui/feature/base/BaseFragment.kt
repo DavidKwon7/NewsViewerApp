@@ -12,8 +12,8 @@ import androidx.fragment.app.Fragment
 abstract class BaseFragment<VB: ViewDataBinding>(@LayoutRes val layoutResId: Int) : Fragment() {
 
     private var _binding: VB? = null
-    protected val binding: VB
-        get() = requireNotNull(_binding)
+    protected val binding: VB get() = _binding!!
+        //requireNotNull(_binding)
 
     override fun onCreateView(
         inflater: LayoutInflater,

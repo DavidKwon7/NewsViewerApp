@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface SearchNewsRepository {
 
-    suspend fun searchArticleNews(Search: String): Flow<PagingData<Article>>
+    fun searchArticleNews(Search: String): Flow<PagingData<Article>>
 }

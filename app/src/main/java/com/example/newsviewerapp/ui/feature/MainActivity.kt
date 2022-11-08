@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // tool bar
-        setSupportActionBar(binding.toolBar)
+       /* // tool bar
+        setSupportActionBar(binding.toolBar)*/
 
         // bottom nav
         // 아이템 색 바꾸기

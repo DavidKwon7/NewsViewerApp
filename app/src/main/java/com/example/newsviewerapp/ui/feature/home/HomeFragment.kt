@@ -1,13 +1,11 @@
 package com.example.newsviewerapp.ui.feature.home
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.databinding.DataBindingUtil
+import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
@@ -17,59 +15,82 @@ import com.example.newsviewerapp.databinding.FragmentHomeBinding
 import com.example.newsviewerapp.ui.feature.base.BaseFragment
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import timber.log.Timber
 
 @AndroidEntryPoint
-class HomeFragment : Fragment() {
+class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
-    private lateinit var binding: FragmentHomeBinding
+    private val homeAdapter: HomeAdapter by lazy {
+        HomeAdapter()
+    }
 
     private val homeViewModel: HomeViewModel by viewModels()
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(
-            inflater, R.layout.fragment_home, container, false
-        )
-        val view = binding.root
-        return view
-
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        initRecyclerView()
 
+        binding.btnSearch.setOnClickListener {
+            val et = binding.etSearch.text.toString()
+            /*lifecycleScope.launch(Dispatchers.Main) {
+                searchNews(et)
+                observeHomeList()
+            }*/
+
+            observeHomeList()
+        }
     }
 
+    fun initRecyclerView() {
+        binding.rvSearch.apply {
+            adapter = homeAdapter
+        }
+    }
+
+    fun searchNews(q: String) {
+        homeViewModel.searchNews(q)
+    }
+
+    @SuppressLint("SuspiciousIndentation")
     private fun observeHomeList() {
         viewLifecycleOwner.lifecycleScope.launch {
             viewLifecycleOwner.repeatOnLifecycle(Lifecycle.State.STARTED) {
-                homeViewModel.searchStateFlow.collect { state ->
-                    when(state) {
-                        is SearchState.Empty -> {
+                val et = binding.etSearch.text.toString()
+                    homeViewModel.searchNews(et)
+                        .collectLatest {
+                            homeAdapter.submitData(it)
+                        }
+                        /*is SearchState.Empty -> {
                             Snackbar.make(
                                 binding.root,"화면이 비었습니다", Snackbar.LENGTH_LONG
                             ).show()
                         }
 
                         is SearchState.Loading -> {
-                            Toast.makeText(requireContext(), "로딩 중..", Toast.LENGTH_SHORT).show()
-                            // pb 넣어주기
+                            Toast.makeText(requireContext(), "loading..", Toast.LENGTH_SHORT).show()
+                            binding.pb.isVisible = true
+                            binding.rvSearch.isVisible = false
                         }
 
                         is SearchState.Success -> {
-                            Log.d(TAG, "observeHomeList: $state")
+                            binding.pb.isVisible = false
+                            binding.rvSearch.isVisible = true
+                            *//*state.data.collect{
+                                homeAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+                                binding.rvSearch.adapter = homeAdapter
+                            }*//*
+                            homeViewModel.searchStateFlow.collect {
+                                homeAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+                            }
                         }
                         is SearchState.Failed -> {
                             Log.e(TAG, "observeHomeList: ${state.message}" )
-                        }
-                    }
-                }
+                        }*/
+
             }
         }
     }
