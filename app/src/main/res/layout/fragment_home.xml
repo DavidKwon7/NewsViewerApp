@@ -7,10 +7,12 @@
 
     </data>
 
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         tools:context=".ui.feature.home.HomeFragment">
+
 
         <EditText
             android:id="@+id/et_search"
@@ -28,5 +30,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:text="검색"/>
 
+
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
