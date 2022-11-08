@@ -14,7 +14,7 @@ class SearchPagingSource(
     override fun getRefreshKey(state: PagingState<Int, Article>) = state.anchorPosition
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
-        val position = params?.key ?: PAGING_START_PAGE
+        val position = params.key ?: PAGING_START_PAGE
         return try {
             val response = api.searchForNews(query, position, params.loadSize)
             val article = response.articles
