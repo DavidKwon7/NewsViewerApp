@@ -15,16 +15,31 @@
         android:id="@+id/searchFragment"
         android:name="com.example.newsviewerapp.ui.feature.search.SearchFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_searchDetailFragment2"
+            app:destination="@id/searchDetailFragment" />
+    </fragment>
+
+    <fragment
+    android:id="@+id/searchDetailFragment"
+    android:name="com.example.newsviewerapp.SearchDetailFragment"
+    android:label="fragment_search_detail"
+    tools:layout="@layout/fragment_search_detail" >
+
+    </fragment>
+
     <fragment
         android:id="@+id/favoriteFragment"
         android:name="com.example.newsviewerapp.ui.feature.favorite.FavoriteFragment"
         android:label="fragment_favorite"
         tools:layout="@layout/fragment_favorite" />
+
     <fragment
         android:id="@+id/myFragment"
         android:name="com.example.newsviewerapp.ui.feature.my.MyFragment"
         android:label="fragment_my"
         tools:layout="@layout/fragment_my" />
+
 
 </navigation>

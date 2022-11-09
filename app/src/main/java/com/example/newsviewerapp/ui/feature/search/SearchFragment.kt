@@ -8,6 +8,7 @@ import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import com.example.newsviewerapp.R
+import com.example.newsviewerapp.common.navigateWithArgs
 import com.example.newsviewerapp.databinding.FragmentSearchBinding
 import com.example.newsviewerapp.ui.feature.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
@@ -20,8 +21,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     private val searchAdapter: SearchAdapter by lazy {
         SearchAdapter(
             itemClickListener = {
-                // todo nav로 이동 설정
                 Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show()
+                /*navigateWithArgs(
+                    navDirections = SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(
+                        it
+                    )
+                )*/
             }
         )
     }
@@ -88,7 +93,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
                         }
                     }
                     is SearchState.Failed -> {
-                        Log.e(TAG, "에러 발생: ${state.message}",)
+                        Log.e(TAG, "에러 발생: ${state.message}")
                     }
                     else -> {
                         // nothing
@@ -124,6 +129,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         }
 
     }
+
     companion object {
         const val TAG = "HomeFragment"
     }

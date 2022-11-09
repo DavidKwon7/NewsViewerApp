@@ -16,6 +16,8 @@ plugins {
     id("kotlin-kapt")
     id("kotlin-parcelize")
     id("com.google.dagger.hilt.android")
+
+    id("androidx.navigation.safeargs.kotlin")
 }
 
 android {
@@ -100,4 +102,6 @@ dependencies {
     implementation(Dependency.Glide.GLIDE)
     implementation(Dependency.Glide.GLIDE_COMPILER)
 
+    implementation(Dependency.Nav.NAV_UI)
+    implementation(Dependency.Nav.NAV_FRAGMENT)
 }

@@ -34,6 +34,13 @@ object Dependency {
         const val HILT_KAPT = "com.google.dagger:hilt-android-compiler:2.43.2"
     }
 
+    object Nav {
+        const val NAV_PLUGIN = "androidx.navigation:navigation-safe-args-gradle-plugin:2.5.2"
+
+        const val NAV_FRAGMENT = "androidx.navigation:navigation-fragment-ktx:2.5.2"
+        const val NAV_UI = "androidx.navigation:navigation-ui-ktx:2.5.2"
+    }
+
     object Log {
         const val TIMBER = "com.jakewharton.timber:timber:5.0.1"
     }
