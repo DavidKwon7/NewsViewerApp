@@ -9,25 +9,25 @@ import com.example.domain.entity.Article
 import com.example.newsviewerapp.databinding.ItemHomeBinding
 
 class SearchAdapter(
-
-) : PagingDataAdapter<Article, SearchAdapter.HomeViewHolder>(DIFF_CALLBACK) {
+    private val itemClickListener: (Article) -> Unit
+): PagingDataAdapter<Article, SearchAdapter.HomeViewHolder>(DIFF_CALLBACK) {
 
     inner class HomeViewHolder(
-        private val binding: ItemHomeBinding
+        private val binding: ItemHomeBinding,
     ) : RecyclerView.ViewHolder(binding.root) {
 
-        // 클릭 기능 추가 (상세보기)
-        fun bind(
-            item: Article,
-        ) {
+        fun bind(item: Article, itemClickListener: (Article) -> Unit) {
             binding.searchNews = item
+            binding.root.setOnClickListener {
+                itemClickListener.invoke(item)
+            }
         }
     }
 
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val item = getItem(position)
         item?.let {
-            holder.bind(it)
+            holder.bind(it, itemClickListener)
         }
     }
 

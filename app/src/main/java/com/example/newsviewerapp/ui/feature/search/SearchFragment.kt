@@ -18,7 +18,12 @@ import kotlinx.coroutines.launch
 class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
 
     private val searchAdapter: SearchAdapter by lazy {
-        SearchAdapter()
+        SearchAdapter(
+            itemClickListener = {
+                // todo nav로 이동 설정
+                Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show()
+            }
+        )
     }
 
     private val homeViewModel: HomeViewModel by viewModels()
