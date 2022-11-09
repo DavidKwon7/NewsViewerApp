@@ -1,31 +1,24 @@
 package com.example.newsviewerapp.ui.feature.home
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
-import androidx.lifecycle.repeatOnLifecycle
-import androidx.paging.PagingData
 import com.example.newsviewerapp.R
-import com.example.newsviewerapp.databinding.FragmentHomeBinding
+import com.example.newsviewerapp.databinding.FragmentSearchBinding
 import com.example.newsviewerapp.ui.feature.base.BaseFragment
-import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
-class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
+class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_search) {
 
-    private val homeAdapter: HomeAdapter by lazy {
-        HomeAdapter()
+    private val searchAdapter: SearchAdapter by lazy {
+        SearchAdapter()
     }
 
     private val homeViewModel: HomeViewModel by viewModels()
@@ -48,7 +41,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     fun initRecyclerView() {
         binding.rvSearch.apply {
-            adapter = homeAdapter
+            adapter = searchAdapter
         }
     }
 
@@ -85,8 +78,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                         binding.rvSearch.isVisible = true
                         binding.tvEmpty.isVisible = false
                         state.data.collect {
-                            homeAdapter.submitData(viewLifecycleOwner.lifecycle, it)
-                            binding.rvSearch.adapter = homeAdapter
+                            searchAdapter.submitData(viewLifecycleOwner.lifecycle, it)
+                            binding.rvSearch.adapter = searchAdapter
                         }
                     }
                     is SearchState.Failed -> {

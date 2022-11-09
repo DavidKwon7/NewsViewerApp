@@ -8,9 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.entity.Article
 import com.example.newsviewerapp.databinding.ItemHomeBinding
 
-class HomeAdapter(
+class SearchAdapter(
 
-) : PagingDataAdapter<Article, HomeAdapter.HomeViewHolder>(DIFF_CALLBACK) {
+) : PagingDataAdapter<Article, SearchAdapter.HomeViewHolder>(DIFF_CALLBACK) {
 
     inner class HomeViewHolder(
         private val binding: ItemHomeBinding
