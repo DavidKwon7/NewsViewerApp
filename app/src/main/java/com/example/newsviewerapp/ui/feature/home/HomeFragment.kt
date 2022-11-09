@@ -70,17 +70,20 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                             binding.root, "화면이 비었습니다", Snackbar.LENGTH_LONG
                         ).show()*/
                         Toast.makeText(requireContext(), "화면이 비었습니다", Toast.LENGTH_SHORT).show()
+                        binding.tvEmpty.isVisible = true
                     }
 
                     is SearchState.Loading -> {
                         Toast.makeText(requireContext(), "loading..", Toast.LENGTH_SHORT).show()
                         binding.pb.isVisible = true
                         binding.rvSearch.isVisible = false
+                        binding.tvEmpty.isVisible = false
                     }
 
                     is SearchState.Success -> {
                         binding.pb.isVisible = false
                         binding.rvSearch.isVisible = true
+                        binding.tvEmpty.isVisible = false
                         state.data.collect {
                             homeAdapter.submitData(viewLifecycleOwner.lifecycle, it)
                             binding.rvSearch.adapter = homeAdapter
@@ -88,6 +91,9 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                     }
                     is SearchState.Failed -> {
                         Log.e(TAG, "에러 발생: ${state.message}",)
+                    }
+                    else -> {
+                        // nothing
                     }
                 }
             }
