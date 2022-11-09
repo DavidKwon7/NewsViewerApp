@@ -17,7 +17,7 @@
         android:label="fragment_home"
         tools:layout="@layout/fragment_search" >
         <action
-            android:id="@+id/action_searchFragment_to_searchDetailFragment2"
+            android:id="@+id/action_searchFragment_to_searchDetailFragment"
             app:destination="@id/searchDetailFragment" />
     </fragment>
 

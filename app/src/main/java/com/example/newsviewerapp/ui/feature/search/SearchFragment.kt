@@ -22,11 +22,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         SearchAdapter(
             itemClickListener = {
                 Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show()
-                /*navigateWithArgs(
+                navigateWithArgs(
                     navDirections = SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(
-                        it
+                        // 전달 data class  넣어주기
                     )
-                )*/
+                )
             }
         )
     }
