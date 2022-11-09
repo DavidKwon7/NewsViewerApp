@@ -3,11 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/searchFragment">
+    app:startDestination="@id/categoryFragment">
+
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.example.newsviewerapp.ui.feature.category.CategoryFragment"
+        android:label="fragment_category"
+        tools:layout="@layout/fragment_category" />
 
     <fragment
         android:id="@+id/searchFragment"
-        android:name="com.example.newsviewerapp.ui.feature.home.SearchFragment"
+        android:name="com.example.newsviewerapp.ui.feature.search.SearchFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_search" />
     <fragment
@@ -20,4 +26,5 @@
         android:name="com.example.newsviewerapp.ui.feature.my.MyFragment"
         android:label="fragment_my"
         tools:layout="@layout/fragment_my" />
+
 </navigation>

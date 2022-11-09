@@ -1,4 +1,4 @@
-package com.example.newsviewerapp.ui.feature.home
+package com.example.newsviewerapp.ui.feature.search
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope

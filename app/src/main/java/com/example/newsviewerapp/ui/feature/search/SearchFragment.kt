@@ -1,4 +1,4 @@
-package com.example.newsviewerapp.ui.feature.home
+package com.example.newsviewerapp.ui.feature.search
 
 import android.os.Bundle
 import android.util.Log
