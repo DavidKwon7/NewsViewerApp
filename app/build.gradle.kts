@@ -97,4 +97,7 @@ dependencies {
 
     implementation(Dependency.Paging.PAGING)
 
+    implementation(Dependency.Glide.GLIDE)
+    implementation(Dependency.Glide.GLIDE_COMPILER)
+
 }
