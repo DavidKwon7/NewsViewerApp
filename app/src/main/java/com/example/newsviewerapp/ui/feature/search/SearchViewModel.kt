@@ -5,7 +5,7 @@ import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
 import com.example.domain.entity.Article
-import com.example.domain.usecase.SearchNewUseCase
+import com.example.domain.usecase.SearchNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
-    val useCase: SearchNewUseCase
+    val useCase: SearchNewsUseCase
 ) : ViewModel() {
 
     private var _searchStateFlow: MutableStateFlow<PagingData<SearchState>> =

@@ -8,7 +8,7 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
-class SearchNewUseCase @Inject constructor(
+class SearchNewsUseCase @Inject constructor(
     private val searchNewsRepository: SearchNewsRepository
 ) {
     operator fun invoke(params: String): Flow<PagingData<Article>> {
