@@ -5,6 +5,7 @@ import androidx.paging.PagingState
 import com.example.domain.entity.Article
 import com.example.remote.NewsAPI
 import com.example.util.Constants.Companion.PAGING_START_PAGE
+import retrofit2.HttpException
 import java.io.IOException
 
 class SearchPagingSource(
@@ -25,7 +26,10 @@ class SearchPagingSource(
                 nextKey = if (article.isEmpty()) null else position +1
             )
 
-        } catch (exception: Exception) {
+        } catch (exception: IOException) {
+            LoadResult.Error(exception)
+
+        } catch (exception: HttpException) {
             LoadResult.Error(exception)
         }
     }
