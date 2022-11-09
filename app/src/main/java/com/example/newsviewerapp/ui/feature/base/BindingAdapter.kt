@@ -8,6 +8,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.bumptech.glide.request.RequestOptions
 
 object BindingAdapter {
+    
     @BindingAdapter("app:imageUrl","app:placeholder")
     @JvmStatic
     fun loadImage(imageView: ImageView, url: String, placeholder: Drawable) {
