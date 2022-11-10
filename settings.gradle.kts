@@ -13,4 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "NewsViewerApp"
-include ':app'
+include(":app")
+include(":data")
+include(":domain")
+include(":utility")
