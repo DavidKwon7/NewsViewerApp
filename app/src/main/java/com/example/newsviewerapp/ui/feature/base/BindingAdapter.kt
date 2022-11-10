@@ -12,7 +12,7 @@ object BindingAdapter {
 
     @BindingAdapter("app:imageUrl","app:placeholder")
     @JvmStatic
-    fun loadImage(imageView: ImageView, url: String, placeholder: Drawable) {
+    fun loadImage(imageView: ImageView, url: String?, placeholder: Drawable) {
         Glide.with(imageView.context)
             .load(url)
             .error(placeholder)

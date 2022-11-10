@@ -98,7 +98,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
                     categoryViewModel.categoryArticle("jp")
                 }
                 R.id.radio_btn_kr -> {
-                    //categoryViewModel.categoryArticle("kr")
+                    categoryViewModel.categoryArticle("kr")
                 }
             }
         }
