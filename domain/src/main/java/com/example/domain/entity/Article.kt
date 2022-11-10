@@ -1,5 +1,7 @@
 package com.example.domain.entity
 
+import javax.annotation.Nullable
+
 data class Article(
     val author: String,
     val content: String,
@@ -7,7 +9,7 @@ data class Article(
     val publishedAt: String,
     //val source: Source,
     val title: String,
-    val url: String,
-    val urlToImage: String,
+    val url: String?,
+    @Nullable val urlToImage: String? = null,
     val id: Long? = null
 )

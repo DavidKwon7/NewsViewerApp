@@ -17,6 +17,7 @@ import com.example.newsviewerapp.ui.feature.search.SearchFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import okhttp3.internal.wait
 
 @AndroidEntryPoint
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment_category) {
@@ -34,9 +35,28 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.radioGroup.setOnCheckedChangeListener() { group, checkId ->
+            when(checkId) {
+                R.id.radio_btn_us -> {
+                    categoryViewModel.categoryArticle("us")
+                }
+                R.id.radio_btn_gb -> {
+                    categoryViewModel.categoryArticle("gb")
+                }
+                R.id.radio_btn_jp -> {
+                    categoryViewModel.categoryArticle("jp")
+                }
+                R.id.radio_btn_kr -> {
+                    categoryViewModel.categoryArticle("kr")
+                }
+            }
+        }
+
         initRecyclerView()
         searchNews()
         observeCategoryList()
+
+
     }
 
     private fun initRecyclerView() {
