@@ -32,6 +32,7 @@
 
             <RadioButton
                 android:id="@+id/radio_btn_us"
+                android:checked="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="US"

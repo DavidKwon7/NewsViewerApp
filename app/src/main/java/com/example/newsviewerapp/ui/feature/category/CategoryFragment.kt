@@ -1,5 +1,6 @@
 package com.example.newsviewerapp.ui.feature.category
 
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -7,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -35,27 +37,10 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.radioGroup.setOnCheckedChangeListener() { group, checkId ->
-            when(checkId) {
-                R.id.radio_btn_us -> {
-                    categoryViewModel.categoryArticle("us")
-                }
-                R.id.radio_btn_gb -> {
-                    categoryViewModel.categoryArticle("gb")
-                }
-                R.id.radio_btn_jp -> {
-                    categoryViewModel.categoryArticle("jp")
-                }
-                R.id.radio_btn_kr -> {
-                    categoryViewModel.categoryArticle("kr")
-                }
-            }
-        }
-
         initRecyclerView()
         searchNews()
         observeCategoryList()
-
+        clickRadioButton()
 
     }
 
@@ -99,6 +84,26 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
             }
         }
     }
+
+    private fun clickRadioButton() {
+        binding.radioGroup.setOnCheckedChangeListener() { group, checkId ->
+            when(checkId) {
+                R.id.radio_btn_us -> {
+                    categoryViewModel.categoryArticle("us")
+                }
+                R.id.radio_btn_gb -> {
+                    categoryViewModel.categoryArticle("gb")
+                }
+                R.id.radio_btn_jp -> {
+                    categoryViewModel.categoryArticle("jp")
+                }
+                R.id.radio_btn_kr -> {
+                    //categoryViewModel.categoryArticle("kr")
+                }
+            }
+        }
+    }
+
 
 
     companion object {
