@@ -100,6 +100,9 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
                 R.id.radio_btn_kr -> {
                     categoryViewModel.categoryArticle("kr")
                 }
+                R.id.radio_btn_cn -> {
+                    categoryViewModel.categoryArticle("cn")
+                }
             }
         }
     }
