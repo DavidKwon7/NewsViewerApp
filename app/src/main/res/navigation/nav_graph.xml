@@ -27,6 +27,14 @@
     android:label="fragment_search_detail"
     tools:layout="@layout/fragment_search_detail" >
 
+        <argument
+            android:name="searchData"
+            app:argType="com.example.domain.entity.Article"
+            app:nullable="false" />
+
+        <action
+            android:id="@+id/action_searchDetailFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
     </fragment>
 
     <fragment

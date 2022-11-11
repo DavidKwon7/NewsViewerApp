@@ -24,7 +24,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
                 Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show()
                 navigateWithArgs(
                     navDirections = SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(
-                        // 전달 data class  넣어주기
+                        it
                     )
                 )
             }
