@@ -29,6 +29,7 @@ class SearchDetailFragment : BaseFragment<FragmentSearchDetailBinding>(R.layout.
 
         Log.d("전송 확인", "onViewCreated: ${args.searchData.title}")
 
+        //binding.searchArticleData = args.searchData
 
     }
 }
