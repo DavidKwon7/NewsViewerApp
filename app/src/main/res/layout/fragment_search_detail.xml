@@ -40,6 +40,7 @@
 
         <TextView
             android:id="@+id/tv_publishAt"
+            android:text="@{searchArticleData.publishedAt}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="12dp"
@@ -58,7 +59,8 @@
             tools:src="@tools:sample/backgrounds/scenic"/>
 
         <TextView
-            android:id="@+id/tv_content"
+            android:id="@+id/tv_description"
+            android:text="@{searchArticleData.description}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/iv_article"
@@ -69,15 +71,17 @@
 
         <TextView
             android:id="@+id/tv_url"
+            android:text="@{searchArticleData.url}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/tv_content"
+            app:layout_constraintTop_toBottomOf="@id/tv_description"
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_margin="16dp"
             tools:text="http://naver.com"/>
 
         <TextView
             android:id="@+id/tv_author"
+            android:text="@{searchArticleData.author}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toBottomOf="@id/tv_url"

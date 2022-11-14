@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface LocalRepository {
 
-    suspend fun insertNews(article: Article): Flow<List<Article>>
+    suspend fun insertNews(article: Article): Long
 
     suspend fun deleteNews(article: Article)
 
