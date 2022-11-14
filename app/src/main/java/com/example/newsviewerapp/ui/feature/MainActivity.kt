@@ -21,12 +21,6 @@ class MainActivity : AppCompatActivity() {
             //ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-       /* // tool bar
-        setSupportActionBar(binding.toolBar)*/
-
-        // bottom nav
-        // 아이템 색 바꾸기
-        // https://lcw126.tistory.com/330
         val navHostFragment = supportFragmentManager.findFragmentById(
             androidx.navigation.fragment.R.id.nav_host_fragment_container
         ) as NavHostFragment

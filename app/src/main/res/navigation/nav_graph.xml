@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/categoryFragment">
+    app:startDestination="@id/searchFragment">
 
     <fragment
         android:id="@+id/categoryFragment"
@@ -28,13 +28,14 @@
     tools:layout="@layout/fragment_search_detail" >
 
         <argument
-            android:name="searchData"
+            android:name="searchDataList"
             app:argType="com.example.domain.entity.Article"
-            app:nullable="false" />
+            app:nullable="true"/>
 
         <action
             android:id="@+id/action_searchDetailFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+
     </fragment>
 
     <fragment

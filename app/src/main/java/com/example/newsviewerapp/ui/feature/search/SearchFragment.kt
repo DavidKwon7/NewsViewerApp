@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import com.example.newsviewerapp.R
 import com.example.newsviewerapp.common.navigateWithArgs
 import com.example.newsviewerapp.databinding.FragmentSearchBinding
@@ -22,11 +23,13 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
         SearchAdapter(
             itemClickListener = {
                 Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show()
-                navigateWithArgs(
-                    navDirections = SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(
-                        it
+                /*navigateWithArgs(
+                    SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(
+                        it,
                     )
-                )
+                )*/
+                val action = SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(it)
+                findNavController().navigate(action)
             }
         )
     }

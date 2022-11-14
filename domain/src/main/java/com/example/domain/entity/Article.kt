@@ -19,4 +19,4 @@ data class Article(
 
     @PrimaryKey(autoGenerate = true)
     val id: Long? = null
-)
+) : java.io.Serializable
