@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".SearchDetailFragment">
+        tools:context=".ui.feature.detail.SearchDetailFragment">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"
@@ -23,7 +23,17 @@
             android:background="@color/teal_200"
             app:title="News Detail"
             app:titleTextColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <ImageView
+                android:id="@+id/tb_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_baseline_favorite_24"
+                android:layout_gravity="end"
+                app:tint="@color/white" />
+
+        </androidx.appcompat.widget.Toolbar>
 
 
         <TextView

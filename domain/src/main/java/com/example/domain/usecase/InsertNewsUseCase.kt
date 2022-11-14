@@ -8,7 +8,7 @@ import javax.inject.Inject
 class InsertNewsUseCase @Inject constructor(
     private val localRepository: LocalRepository
 ) {
-    suspend fun invoke(article: Article): Long {
+    suspend fun invoke(article: Article) {
         return localRepository.insertNews(article)
     }
 }

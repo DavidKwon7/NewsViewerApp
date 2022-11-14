@@ -9,7 +9,7 @@ class LocalDataSourceImpl @Inject constructor(
     private val newsDao: NewsDao
 ) : LocalDataSource {
 
-    override suspend fun insertNews(article: Article): Long {
+    override suspend fun insertNews(article: Article) {
         return newsDao.insertNews(article)
     }
 

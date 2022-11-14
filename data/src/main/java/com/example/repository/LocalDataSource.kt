@@ -5,7 +5,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface LocalDataSource {
 
-    suspend fun insertNews(article: Article): Long
+    suspend fun insertNews(article: Article)
 
     suspend fun deleteNews(article: Article)
 

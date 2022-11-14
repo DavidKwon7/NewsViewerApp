@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.Flow
 interface NewsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNews(article: Article): Long
+    suspend fun insertNews(article: Article)
 
     @Query("SELECT * FROM articleEntity")
     fun getAllNews(): Flow<List<Article>>
