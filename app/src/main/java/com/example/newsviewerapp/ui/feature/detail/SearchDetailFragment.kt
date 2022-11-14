@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.newsviewerapp.R
 import com.example.newsviewerapp.databinding.FragmentSearchDetailBinding
@@ -21,6 +22,7 @@ class SearchDetailFragment : Fragment() {
     //todo navArg 설정 후 데이터 넘겨준 후, UI에 띄워주기 [Article]
     //private val args by navArgs<SearchDetailFragmentArgs>()
 
+    val searchDetailViewModel: SearchDetailViewModel by viewModels()
     val args: SearchDetailFragmentArgs by navArgs()
     //val searchList = args.searchData.toString()
 
@@ -65,6 +67,7 @@ class SearchDetailFragment : Fragment() {
             .setPositiveButton("확인",
             DialogInterface.OnClickListener { dialogInterface, which ->
                 Toast.makeText(requireContext(), "삭제!", Toast.LENGTH_SHORT).show()
+                searchDetailViewModel.insertNews(args.searchDataList)
             })
             .setNegativeButton("취소",
             DialogInterface.OnClickListener { dialogInterface, which ->

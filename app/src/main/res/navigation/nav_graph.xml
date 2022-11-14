@@ -30,7 +30,7 @@
         <argument
             android:name="searchDataList"
             app:argType="com.example.domain.entity.Article"
-            app:nullable="true"/>
+            app:nullable="false"/>
 
         <action
             android:id="@+id/action_searchDetailFragment_to_searchFragment"
