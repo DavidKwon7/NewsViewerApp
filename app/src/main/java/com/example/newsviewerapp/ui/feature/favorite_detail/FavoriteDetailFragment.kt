@@ -54,7 +54,7 @@ class FavoriteDetailFragment : Fragment() {
             .setPositiveButton("확인",
                 DialogInterface.OnClickListener { dialogInterface, which ->
                     Toast.makeText(requireContext(), "삭제 완료", Toast.LENGTH_SHORT).show()
-                    // delete 설정
+                    favoriteDetailViewModel.deleteNews(args.favoriteDataList)
                 })
             .setNegativeButton("취소",
                 DialogInterface.OnClickListener { dialogInterface, which ->
