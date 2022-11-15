@@ -20,7 +20,7 @@ class FavoriteDetailViewModel @Inject constructor(
     private var _favoriteFlow = MutableStateFlow<SearchDetailState>(SearchDetailState.Empty)
     val favoriteFlow: StateFlow<SearchDetailState> get() = _favoriteFlow
 
-    fun insertNews(article: Article) =
+    fun deleteNews(article: Article) =
         viewModelScope.launch(Dispatchers.IO) {
             _favoriteFlow.value = SearchDetailState.Loading
             deleteNewsUseCase.invoke(article)

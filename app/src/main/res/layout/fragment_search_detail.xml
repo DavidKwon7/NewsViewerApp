@@ -8,7 +8,6 @@
             name="searchArticleData"
             type="com.example.domain.entity.Article" />
 
-
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
