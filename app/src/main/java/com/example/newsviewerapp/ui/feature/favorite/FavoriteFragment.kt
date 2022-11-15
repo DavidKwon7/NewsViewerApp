@@ -1,10 +1,13 @@
 package com.example.newsviewerapp.ui.feature.favorite
 
+import android.content.DialogInterface
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
@@ -41,6 +44,7 @@ class FavoriteFragment : Fragment() {
         initRecyclerView()
         getNews()
         observeGetFavoriteNews()
+        clickToolbar()
     }
 
     private fun initRecyclerView() {
@@ -75,5 +79,27 @@ class FavoriteFragment : Fragment() {
                 }
             }
         }
+    }
+
+    private fun clickToolbar() {
+        binding.tbIcon.setOnClickListener {
+            alertDialog()
+        }
+    }
+
+    private fun alertDialog() {
+        val alertDialog = AlertDialog.Builder(requireContext())
+            .setTitle("Local DB")
+            .setMessage("선택하신 뉴스를 삭제하시겠습니까?")
+            .setPositiveButton("확인",
+                DialogInterface.OnClickListener { dialogInterface, which ->
+                    Toast.makeText(requireContext(), "추가 완료", Toast.LENGTH_SHORT).show()
+                    // delete 동작 추가
+                })
+            .setNegativeButton("취소",
+                DialogInterface.OnClickListener { dialogInterface, which ->
+                    //
+                })
+        alertDialog.show()
     }
 }

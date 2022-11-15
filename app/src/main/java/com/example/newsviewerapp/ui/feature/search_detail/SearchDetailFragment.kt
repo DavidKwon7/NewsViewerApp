@@ -1,4 +1,4 @@
-package com.example.newsviewerapp.ui.feature.detail
+package com.example.newsviewerapp.ui.feature.search_detail
 
 import android.content.DialogInterface
 import android.os.Bundle
@@ -62,11 +62,11 @@ class SearchDetailFragment : Fragment() {
 
     private fun alertDialog() {
         val alertDialog = AlertDialog.Builder(requireContext())
-            .setTitle("삭제")
-            .setMessage("삭제하시겠습니까?")
+            .setTitle("Local DB")
+            .setMessage("선택하신 뉴스를 추가하시겠습니까?")
             .setPositiveButton("확인",
             DialogInterface.OnClickListener { dialogInterface, which ->
-                Toast.makeText(requireContext(), "삭제!", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), "추가 완료", Toast.LENGTH_SHORT).show()
                 searchDetailViewModel.insertNews(args.searchDataList)
             })
             .setNegativeButton("취소",

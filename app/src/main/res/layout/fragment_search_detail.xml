@@ -14,7 +14,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".ui.feature.detail.SearchDetailFragment">
+        tools:context=".ui.feature.search_detail.SearchDetailFragment">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolBar"

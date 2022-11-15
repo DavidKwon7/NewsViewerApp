@@ -19,7 +19,17 @@
             android:background="@color/teal_200"
             app:title="Favorite News"
             app:titleTextColor="@color/white"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent" >
+
+            <ImageView
+                android:id="@+id/tb_icon"
+                android:src="@drawable/ic_baseline_delete_24"
+                android:layout_gravity="end"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:tint="@color/white" />
+
+        </androidx.appcompat.widget.Toolbar>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvList"

@@ -23,7 +23,7 @@
 
     <fragment
     android:id="@+id/searchDetailFragment"
-    android:name="com.example.newsviewerapp.ui.feature.detail.SearchDetailFragment"
+    android:name="com.example.newsviewerapp.ui.feature.search_detail.SearchDetailFragment"
     android:label="fragment_search_detail"
     tools:layout="@layout/fragment_search_detail" >
 
