@@ -1,14 +1,13 @@
 package com.example.newsviewerapp.ui.feature.favorite_detail
 
-import android.content.DialogInterface
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.newsviewerapp.R
@@ -27,8 +26,10 @@ class FavoriteDetailFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_favorite_detail, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_favorite_detail, container, false
+        )
         val view = binding.root
         return view
     }
@@ -51,15 +52,15 @@ class FavoriteDetailFragment : Fragment() {
         val alertDialog = AlertDialog.Builder(requireContext())
             .setTitle("Local DB")
             .setMessage("선택하신 뉴스를 삭제하시겠습니까?")
-            .setPositiveButton("확인",
-                DialogInterface.OnClickListener { dialogInterface, which ->
-                    Toast.makeText(requireContext(), "삭제 완료", Toast.LENGTH_SHORT).show()
-                    favoriteDetailViewModel.deleteNews(args.favoriteDataList)
-                })
-            .setNegativeButton("취소",
-                DialogInterface.OnClickListener { dialogInterface, which ->
-                    //
-                })
+            .setPositiveButton("확인"
+            ) { _, _ ->
+                Toast.makeText(requireContext(), "삭제 완료", Toast.LENGTH_SHORT).show()
+                favoriteDetailViewModel.deleteNews(args.favoriteDataList)
+            }
+            .setNegativeButton("취소"
+            ) { _, _ ->
+                // nothing
+            }
         alertDialog.show()
     }
 }

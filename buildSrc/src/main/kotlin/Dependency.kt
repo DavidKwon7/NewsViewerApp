@@ -77,4 +77,5 @@ object Dependency {
     object Paging {
         const val PAGING = "androidx.paging:paging-runtime:3.0.1"
     }
+
 }

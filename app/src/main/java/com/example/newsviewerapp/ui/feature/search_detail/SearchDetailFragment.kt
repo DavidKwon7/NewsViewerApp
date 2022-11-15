@@ -1,15 +1,14 @@
 package com.example.newsviewerapp.ui.feature.search_detail
 
-import android.content.DialogInterface
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.newsviewerapp.R
@@ -19,12 +18,8 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class SearchDetailFragment : Fragment() {
 
-    //todo navArg 설정 후 데이터 넘겨준 후, UI에 띄워주기 [Article]
-    //private val args by navArgs<SearchDetailFragmentArgs>()
-
     val searchDetailViewModel: SearchDetailViewModel by viewModels()
     val args: SearchDetailFragmentArgs by navArgs()
-    //val searchList = args.searchData.toString()
 
     lateinit var binding: FragmentSearchDetailBinding
 
@@ -33,8 +28,10 @@ class SearchDetailFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(inflater,
-            R.layout.fragment_search_detail, container, false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_search_detail, container, false
+        )
         val view = binding.root
         return view
     }
@@ -44,13 +41,10 @@ class SearchDetailFragment : Fragment() {
 
         Log.d("전송 확인", "onViewCreated: ${args.searchDataList?.title}")
         Toast.makeText(requireContext(), "${args.searchDataList?.url}", Toast.LENGTH_LONG).show()
-        //binding.args = args.searchDataList
         binding.searchArticleData = args.searchDataList
 
         initToolbar()
 
-        //binding.searchArticleData = args.searchDataList
-        //binding.textTest.text = args.searchDataList?.url
     }
 
     private fun initToolbar() {
@@ -64,15 +58,13 @@ class SearchDetailFragment : Fragment() {
         val alertDialog = AlertDialog.Builder(requireContext())
             .setTitle("Local DB")
             .setMessage("선택하신 뉴스를 추가하시겠습니까?")
-            .setPositiveButton("확인",
-            DialogInterface.OnClickListener { dialogInterface, which ->
+            .setPositiveButton("확인") { _, _ ->
                 Toast.makeText(requireContext(), "추가 완료", Toast.LENGTH_SHORT).show()
                 searchDetailViewModel.insertNews(args.searchDataList)
-            })
-            .setNegativeButton("취소",
-            DialogInterface.OnClickListener { dialogInterface, which ->
-                //
-            })
+            }
+            .setNegativeButton("취소") { _, _ ->
+
+            }
         alertDialog.show()
     }
 }
