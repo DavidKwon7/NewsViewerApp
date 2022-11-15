@@ -42,7 +42,27 @@
         android:id="@+id/favoriteFragment"
         android:name="com.example.newsviewerapp.ui.feature.favorite.FavoriteFragment"
         android:label="fragment_favorite"
-        tools:layout="@layout/fragment_favorite" />
+        tools:layout="@layout/fragment_favorite" >
+        <action
+            android:id="@+id/action_favoriteFragment_to_favoriteDetailFragment"
+            app:destination="@id/favoriteDetailFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/favoriteDetailFragment"
+        android:name="com.example.newsviewerapp.ui.feature.favorite_detail.FavoriteDetailFragment"
+        android:label="fragment_favorite_detail"
+        tools:layout="@layout/fragment_favorite_detail">
+
+        <argument
+            android:name="favoriteDataList"
+            app:argType="com.example.domain.entity.Article"
+            app:nullable="false"/>
+
+        <action
+            android:id="@+id/action_favoriteDetailFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/myFragment"

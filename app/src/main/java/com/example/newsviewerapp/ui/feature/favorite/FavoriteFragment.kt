@@ -14,6 +14,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import com.example.newsviewerapp.R
+import com.example.newsviewerapp.common.navigateWithArgs
 import com.example.newsviewerapp.databinding.FragmentFavoriteBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -24,7 +25,15 @@ class FavoriteFragment : Fragment() {
     lateinit var binding: FragmentFavoriteBinding
     private val favoriteViewModel: FavoriteViewModel by viewModels()
     private val favoriteAdapter: FavoriteAdapter by lazy {
-        FavoriteAdapter()
+        FavoriteAdapter(
+            itemClickListener = {
+                navigateWithArgs(
+                    FavoriteFragmentDirections.actionFavoriteFragmentToFavoriteDetailFragment(
+                        it
+                    )
+                )
+            }
+        )
     }
 
     override fun onCreateView(

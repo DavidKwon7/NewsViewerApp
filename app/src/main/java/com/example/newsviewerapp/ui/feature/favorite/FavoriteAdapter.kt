@@ -8,7 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.entity.Article
 import com.example.newsviewerapp.databinding.ItemFavoriteBinding
 
-class FavoriteAdapter() : ListAdapter<Article, FavoriteAdapter.FavoriteViewHolder>(DIFF_COMPARATOR) {
+class FavoriteAdapter(
+    private val itemClickListener: (Article) -> Unit
+) : ListAdapter<Article, FavoriteAdapter.FavoriteViewHolder>(DIFF_COMPARATOR) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavoriteViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -18,16 +20,20 @@ class FavoriteAdapter() : ListAdapter<Article, FavoriteAdapter.FavoriteViewHolde
 
     override fun onBindViewHolder(holder: FavoriteViewHolder, position: Int) {
         val item = getItem(position)
-        item?.let { holder.bind(it) }
+        item?.let { holder.bind(it, itemClickListener) }
     }
 
     inner class FavoriteViewHolder(
         private val binding: ItemFavoriteBinding
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(
-            item: Article
+            item: Article,
+            itemClickListener: (Article) -> Unit
         ) {
             binding.article = item
+            binding.root.setOnClickListener {
+                itemClickListener.invoke(item)
+            }
         }
     }
 
