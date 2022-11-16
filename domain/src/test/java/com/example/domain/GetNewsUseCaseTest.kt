@@ -30,6 +30,7 @@ class GetNewsUseCaseTest {
 
     @Test
     fun test_get_news_success() = runTest {
+
         val newsData = TestDataGenerator.generateArticle()
 
         coEvery { localRepository.getAllNews() } returns newsData
@@ -38,6 +39,19 @@ class GetNewsUseCaseTest {
         result.let { newsData ->
             Truth.assertThat(newsData).isEqualTo(newsData)
         }
+
+        coVerify { localRepository.getAllNews() }
+    }
+
+    @Test(expected = java.lang.Exception::class)
+    fun test_get_news_fail() = runTest {
+
+        val newsData = TestDataGenerator.generateArticle()
+
+        coEvery { localRepository.getAllNews() } throws java.lang.Exception()
+
+        getNewsUseCase.invoke()
+
         coVerify { localRepository.getAllNews() }
     }
 }
