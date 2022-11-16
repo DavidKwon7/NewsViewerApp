@@ -1,11 +1,14 @@
 package com.example.domain.utils
 
 import com.example.domain.entity.Article
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.asFlow
+import kotlinx.coroutines.flow.flowOf
 
 class TestDataGenerator {
 
     companion object {
-        fun generateArticle(): List<Article> {
+        fun generateArticle(): Flow<List<Article>> {
             val item1 = Article(
                 "author1",
                 "content1",
@@ -38,7 +41,7 @@ class TestDataGenerator {
                 "image3",
                 3
             )
-            return listOf(item1, item2, item3)
+            return flowOf(listOf(item1))
         }
     }
 }
