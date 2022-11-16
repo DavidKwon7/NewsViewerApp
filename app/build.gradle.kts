@@ -80,6 +80,7 @@ dependencies {
     testImplementation(Dependency.Test.TRUTH)
     testImplementation(Dependency.Test.MOCKITO)
     testImplementation(Dependency.Test.CORE_TEST)
+    testImplementation(Dependency.Test.MOCKK)
 
     implementation(Dependency.Remote.RETROFIT)
     implementation(Dependency.Remote.CONVERTER)

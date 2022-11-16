@@ -20,6 +20,7 @@ object Dependency {
         const val TRUTH = "com.google.truth:truth:1.0"
         const val MOCKITO = "org.mockito:mockito-inline:3.4.0"
         const val CORE_TEST = "android.arch.core:core-testing:1.1.1"
+        const val MOCKK = "io.mockk:mockk:1.12.4"
     }
 
     object AndroidTest {

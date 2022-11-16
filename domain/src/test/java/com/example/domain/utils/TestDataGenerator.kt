@@ -13,9 +13,9 @@ class TestDataGenerator {
                 "2022",
                 "title1",
                 "http1",
-            "image1",
+                "image1",
                 1
-                )
+            )
 
             val item2 = Article(
                 "author2",
