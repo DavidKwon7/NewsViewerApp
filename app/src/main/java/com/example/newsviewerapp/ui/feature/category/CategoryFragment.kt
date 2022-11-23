@@ -1,14 +1,9 @@
 package com.example.newsviewerapp.ui.feature.category
 
-import android.os.Build
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.annotation.RequiresApi
 import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -19,18 +14,18 @@ import com.example.newsviewerapp.ui.feature.search.SearchFragment
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.internal.wait
 
 @AndroidEntryPoint
 class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment_category) {
 
-   private val categoryAdapter: CategoryAdapter by lazy {
-       CategoryAdapter(
-           itemClickListener = {
-               Toast.makeText(requireContext(), "클릭", Toast.LENGTH_SHORT).show()
-           }
-       )
-   }
+    private val categoryAdapter: CategoryAdapter by lazy {
+        CategoryAdapter(
+            itemClickListener = {
+                Toast.makeText(requireContext(), getString(R.string.click), Toast.LENGTH_SHORT)
+                    .show()
+            }
+        )
+    }
 
     private val categoryViewModel: CategoryViewModel by viewModels()
 
@@ -57,13 +52,21 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
     private fun observeCategoryList() {
         lifecycleScope.launch(Dispatchers.Main) {
             categoryViewModel.categoryStateFlow.collect { state ->
-                when(state) {
+                when (state) {
                     is CategoryState.Empty -> {
-                        Toast.makeText(requireContext(), "화면이 비었습니다", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.empty_screen),
+                            Toast.LENGTH_SHORT
+                        ).show()
                         binding.tvEmpty.isVisible = true
                     }
                     is CategoryState.Loading -> {
-                        Toast.makeText(requireContext(), "로딩 중..", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            requireContext(),
+                            getString(R.string.loading),
+                            Toast.LENGTH_SHORT
+                        ).show()
                         binding.pb.isVisible = true
                         binding.rvCategory.isVisible = false
                         binding.tvEmpty.isVisible = false
@@ -87,7 +90,7 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
 
     private fun clickRadioButton() {
         binding.radioGroup.setOnCheckedChangeListener() { group, checkId ->
-            when(checkId) {
+            when (checkId) {
                 R.id.radio_btn_us -> {
                     categoryViewModel.categoryArticle("us")
                 }
@@ -106,7 +109,6 @@ class CategoryFragment : BaseFragment<FragmentCategoryBinding>(R.layout.fragment
             }
         }
     }
-
 
 
     companion object {

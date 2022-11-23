@@ -21,7 +21,7 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
     private val searchAdapter: SearchAdapter by lazy {
         SearchAdapter(
             itemClickListener = {
-                Toast.makeText(requireContext(), "Click", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.click), Toast.LENGTH_SHORT).show()
                 navigateWithArgs(
                     SearchFragmentDirections.actionSearchFragmentToSearchDetailFragment(
                         it,
@@ -64,12 +64,12 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(R.layout.fragment_sea
             homeViewModel.stateFlow.collect { state ->
                 when (state) {
                     is SearchState.Empty -> {
-                        Toast.makeText(requireContext(), "화면이 비었습니다", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), getString(R.string.empty_screen), Toast.LENGTH_SHORT).show()
                         binding.tvEmpty.isVisible = true
                     }
 
                     is SearchState.Loading -> {
-                        Toast.makeText(requireContext(), "loading..", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(requireContext(), getString(R.string.loading), Toast.LENGTH_SHORT).show()
                         binding.pb.isVisible = true
                         binding.rvSearch.isVisible = false
                         binding.tvEmpty.isVisible = false

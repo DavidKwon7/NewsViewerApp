@@ -49,20 +49,20 @@ class SearchDetailFragment : Fragment() {
 
     private fun initToolbar() {
         binding.tbIcon.setOnClickListener {
-            Toast.makeText(requireContext(), "아이콘 클릭", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireContext(), getString(R.string.icon_click), Toast.LENGTH_SHORT).show()
             alertDialog()
         }
     }
 
     private fun alertDialog() {
         val alertDialog = AlertDialog.Builder(requireContext())
-            .setTitle("Local DB")
-            .setMessage("선택하신 뉴스를 추가하시겠습니까?")
-            .setPositiveButton("확인") { _, _ ->
-                Toast.makeText(requireContext(), "추가 완료", Toast.LENGTH_SHORT).show()
+            .setTitle(getString(R.string.local_db))
+            .setMessage(getString(R.string.ask_news_add))
+            .setPositiveButton(getString(R.string.check)) { _, _ ->
+                Toast.makeText(requireContext(), getString(R.string.finish_add), Toast.LENGTH_SHORT).show()
                 searchDetailViewModel.insertNews(args.searchDataList)
             }
-            .setNegativeButton("취소") { _, _ ->
+            .setNegativeButton(getString(R.string.cancel)) { _, _ ->
 
             }
         alertDialog.show()

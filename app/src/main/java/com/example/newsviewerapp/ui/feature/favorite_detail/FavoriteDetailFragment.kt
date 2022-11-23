@@ -50,14 +50,14 @@ class FavoriteDetailFragment : Fragment() {
 
     private fun alertDialog() {
         val alertDialog = AlertDialog.Builder(requireContext())
-            .setTitle("Local DB")
-            .setMessage("선택하신 뉴스를 삭제하시겠습니까?")
-            .setPositiveButton("확인"
+            .setTitle(getString(R.string.local_db))
+            .setMessage(getString(R.string.ask_news_delete))
+            .setPositiveButton(getString(R.string.check)
             ) { _, _ ->
-                Toast.makeText(requireContext(), "삭제 완료", Toast.LENGTH_SHORT).show()
+                Toast.makeText(requireContext(), getString(R.string.finish_delete), Toast.LENGTH_SHORT).show()
                 favoriteDetailViewModel.deleteNews(args.favoriteDataList)
             }
-            .setNegativeButton("취소"
+            .setNegativeButton(getString(R.string.cancel)
             ) { _, _ ->
                 // nothing
             }

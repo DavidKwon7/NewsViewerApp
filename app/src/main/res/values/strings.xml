@@ -2,4 +2,15 @@
     <string name="app_name">NewsViewerApp</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="empty_screen">화면이 비었습니다</string>
+    <string name="loading">loading..</string>
+    <string name="click">Click</string>
+    <string name="local_db">Local DB</string>
+    <string name="ask_news_delete">선택하신 뉴스를 삭제하시겠습니까?</string>
+    <string name="check">확인</string>
+    <string name="cancel">취소</string>
+    <string name="finish_delete">삭제 완료</string>
+    <string name="icon_click">아이콘 클릭</string>
+    <string name="finish_add">추가 완료</string>
+    <string name="ask_news_add">선택하신 뉴스를 추가하시겠습니까?</string>
 </resources>
